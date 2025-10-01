@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Ventas Mensuales Test</title>
-    https://cdn.plot.ly/plotly-latest.min.js</script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 40px;
-        }
-        #grafico {
-            width: 90%;
-            max-width: 900px;
-            margin: auto;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Gráfico Interactivo</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f8f9fa;
+    }
+    h2 {
+      text-align: center;
+    }
+    #chart-container {
+      width: 70%;
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
-    <h2 style="text-align:center;">Ventas Mensuales Test</h2>
-    <div id="grafico"></div>
-    <script>
-        var trace = {
-            x: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
-            y: [1200, 1500, 1800, 1700, 1600, 2000, 2200, 2100, 1900, 2300, 2500, 2400],
-            mode: 'lines+markers',
-            type: 'scatter',
-            name: 'Ventas mensuales'
-        };
+  <h2>Ejemplo de Gráfico Interactivo con Chart.js</h2>
+  <div id="chart-container">
+    <canvas id="myChart"></canvas>
+  </div>
 
-        var layout = {
-            title: 'Ventas mensuales',
-            xaxis: { title: 'Mes' },
-            yaxis: { title: 'Ventas (USD)' },
-            template: 'plotly_white'
-        };
-
-        Plotly.newPlot('grafico', [trace], layout);
-    </script>
+  <script>
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'line', // Cambia a 'bar', 'pie', 'doughnut', etc.
+      data: {
+        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+        datasets: [{
+          label: 'Ventas 2025',
+          data: [12, 19, 3, 5, 2, 15],
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+          tension: 0.3,
+          fill: true,
+          pointRadius: 6,
+          pointHoverRadius: 10
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { position: 'top' },
+          tooltip: { enabled: true }
+        },
+        interaction: {
+          mode: 'nearest',
+          axis: 'x',
+          intersect: false
+        },
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
