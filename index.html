@@ -1,13 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Ventas Mensuales</title>
     https://cdn.plot.ly/plotly-latest.min.js</script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f9f9f9;
+        }
+        #grafico {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+        }
+    </style>
 </head>
 <body>
     <h2 style="text-align:center;">Ventas Mensuales</h2>
-    <div id="grafico" style="width:90%;max-width:900px;margin:auto;"></div>
+    <div id="grafico"></div>
     <script>
         var datos = {
             x: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
