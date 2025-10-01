@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ventas Mensuales</title>
+    https://cdn.plot.ly/plotly-latest.min.js</script>
+</head>
+<body>
+    <h2 style="text-align:center;">Ventas Mensuales</h2>
+    <div id="grafico" style="width:90%;max-width:900px;margin:auto;"></div>
+    <script>
+        var datos = {
+            x: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+            y: [1200, 1500, 1800, 1700, 1600, 2000, 2200, 2100, 1900, 2300, 2500, 2400],
+            mode: 'lines+markers',
+            type: 'scatter',
+            name: 'Ventas mensuales'
+        };
+
+        var layout = {
+            title: 'Ventas mensuales',
+            xaxis: { title: 'Mes' },
+            yaxis: { title: 'Ventas (USD)' },
+            template: 'plotly_white'
+        };
+
+        Plotly.newPlot('grafico', [datos], layout);
+    </script>
+</body>
+</html>
